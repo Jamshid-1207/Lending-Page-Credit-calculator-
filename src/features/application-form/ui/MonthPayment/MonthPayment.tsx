@@ -12,14 +12,15 @@ type MonthlyPaymentProps = {
 export function MonthlyPayment({ control }: MonthlyPaymentProps) {
   const amount = useWatch({ control, name: "amount" }) ?? 100_000;
   const term = useWatch({ control, name: "term" }) ?? 12;
+  const annualRate = useWatch({ control, name: "annualRate" }) ?? 0.12;
 
   const monthlyPayment = useMemo(() => {
     if (amount <= 0 || term <= 0) {
       return null;
     }
 
-    return calculateMonthlyPayment(amount, term);
-  }, [amount, term]);
+    return calculateMonthlyPayment(amount, term, annualRate);
+  }, [amount, term, annualRate]);
 
   return (
     <div className="bg-blue-50 rounded-lg p-4 border border-blue-100">

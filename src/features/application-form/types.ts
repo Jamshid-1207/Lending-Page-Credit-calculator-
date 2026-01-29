@@ -9,6 +9,7 @@ export type LoanApplicationForm = {
   amount: number;
   term: number;
   purpose: string;
+  annualRate?: number;
 };
 
 export type FieldType = "text" | "email" | "tel" | "number";

@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Loan Calculator Landing
 
-## Getting Started
+Landing page for an online loan. The visitor picks an amount and a term, instantly sees the monthly payment, and submits an application through a validated form.
 
-First, run the development server:
+The interface is in Russian.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Features
+
+- **Loan calculator.** Amount (10,000–5,000,000 ₽) and term (3–60 months) sliders. The monthly payment, total cost and overpayment are recalculated on the fly with the annuity formula.
+- **Application form** in five sections: personal info, contacts, financial info, loan parameters and purpose, with a live monthly payment preview.
+- **Validation** with React Hook Form and a Yup schema: names, phone format, email, amount and term limits, minimum income.
+- **State management** with Zustand: the store keeps the draft application, loading and error states.
+- **Mock submission:** the request is simulated with a delay and returns an application with a generated id.
+- Hero and benefits sections, plus a reusable UI kit (Button, Input, Select, Slider) built on Radix UI.
+
+## Tech stack
+
+Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS 4 · shadcn/ui · Radix UI · Zustand · React Hook Form · Yup
+
+## Architecture
+
+The code follows [Feature-Sliced Design](https://feature-sliced.design/):
+
+```
+src/
+├── app/        # Next.js App Router, global styles
+├── widgets/    # page blocks: hero, benefits
+├── features/   # loan-calculator, application-form, submit-loan
+├── entities/   # loan: types and validators
+├── shared/     # UI kit, finance helpers, hooks, utils
+└── stores/     # Zustand store for loan applications
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then open http://localhost:3000.
 
-## Learn More
+## Author
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Jamshidbek Samandarov · [GitHub](https://github.com/Jamshid-1207) · [Telegram](https://t.me/Samandarov_2804)

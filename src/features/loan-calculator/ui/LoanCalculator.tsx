@@ -20,7 +20,7 @@ export const LoanCalculator = () => {
   return (
     <div className="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto">
       <h2 className="text-2xl font-bold text-gray-900 mb-6">
-        Кредитный калькулятор{annualRate * 100}%
+        Кредитный калькулятор · {Math.round(annualRate * 100)}% годовых
       </h2>
 
       <div className="space-y-6">
